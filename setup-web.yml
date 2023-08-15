@@ -1,0 +1,22 @@
+---
+- name: Config
+  hosts: devops01
+  become: yes
+  tasks:
+  - name: Ping
+    ansible.builtin.ping:
+
+  - name: Add the user 'webadmin' 
+    ansible.builtin.user:
+      name: webadmin
+
+  - name: Install nginx
+    ansible.builtin.apt:
+      name: nginx
+      state: present
+
+  - name: Check nginx  
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
