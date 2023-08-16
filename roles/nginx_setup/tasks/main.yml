@@ -1,0 +1,11 @@
+---
+- name: Create necessary directories
+  file:
+    path: "/var/www/html"
+    state: directory
+
+- name: Copy index.html to server
+  copy:
+    src: index.html
+    dest: "/var/www/html/index.html"
+    mode: "0644"
